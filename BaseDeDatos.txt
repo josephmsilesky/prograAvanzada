@@ -1,0 +1,143 @@
+
+CREATE DATABASE Proyecto_Avanzada;
+GO
+
+USE Proyecto_Avanzada;
+GO
+
+-- Crear tablas
+CREATE TABLE [dbo].[Rol] (
+    [IdRol] int IDENTITY(1,1) NOT NULL,
+    [NombreRol] varchar(75)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdRol] ASC)
+);
+
+CREATE TABLE [dbo].[Usuario] (
+    [IdUsuario] bigint IDENTITY(1,1) NOT NULL,
+    [CorreoElectronico] varchar(50)  NOT NULL,
+    [Contrasenna] varchar(20)  NOT NULL,
+    [Identificacion] varchar(20)  NOT NULL,
+    [Nombre] varchar(100)  NOT NULL,
+    [Estado] bit  NOT NULL,
+    [IdRol] int  NOT NULL,
+    [UsaClaveTemporal] bit  NOT NULL,
+    [FechaCaducidad] datetime2  NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdUsuario] ASC),
+    FOREIGN KEY ([IdRol]) REFERENCES [dbo].[Rol] ([IdRol]) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE [dbo].[Bitacora] (
+    [IdBitacora] BIGINT IDENTITY(1,1) NOT NULL,
+    [FechaHora] DATETIME NOT NULL,
+    [Origen] VARCHAR(255) NOT NULL,
+    [Mensaje] VARCHAR(5000) NOT NULL,
+    [IdUsuario] BIGINT NOT NULL,
+    [DireccionIP] VARCHAR(50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdBitacora] ASC),
+    FOREIGN KEY ([IdUsuario]) REFERENCES [dbo].[Usuario] ([IdUsuario]) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+
+CREATE TABLE [dbo].[Categoria] (
+    [IdCategoria] int IDENTITY(1,1) NOT NULL,
+    [NombreCategoria] varchar(50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdCategoria] ASC)
+);
+
+CREATE TABLE [dbo].[Curso] (
+    [IdCurso] bigint IDENTITY(1,1) NOT NULL,
+    [Nombre] varchar(200)  NOT NULL,
+    [Descripcion] varchar(5000)  NOT NULL,
+    [Precio] decimal(18,2)  NOT NULL,
+    [Stock] int NOT NULL,
+    [Imagen] varchar(5000)  NOT NULL,
+    [IdCategoria] int NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdCurso] ASC),
+    FOREIGN KEY ([IdCategoria]) REFERENCES [dbo].[Categoria] ([IdCategoria]) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE [dbo].[Carrito] (
+    [IdCarrito] bigint IDENTITY(1,1) NOT NULL,
+    [IdUsuario] bigint  NOT NULL,
+    [IdCurso] bigint  NOT NULL,
+    [FechaRegistro] datetime  NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdCarrito] ASC),
+    FOREIGN KEY ([IdCurso]) REFERENCES [dbo].[Curso] ([IdCurso]) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([IdUsuario]) REFERENCES [dbo].[Usuario] ([IdUsuario]) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+CREATE TABLE [dbo].[Compra] (
+    [IdCompra] bigint IDENTITY(1,1) NOT NULL,
+    [IdUsuario] bigint  NOT NULL,
+    [IdCurso] bigint  NOT NULL,
+    [FechaCompra] datetime  NOT NULL,
+    [PrecioPagado] decimal(18,2)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdCompra] ASC),
+    FOREIGN KEY ([IdCurso]) REFERENCES [dbo].[Curso] ([IdCurso]) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([IdUsuario]) REFERENCES [dbo].[Usuario] ([IdUsuario]) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+-- Inserts de datos para la tabla Rol
+INSERT INTO [dbo].[Rol] ([NombreRol]) VALUES ('Administrador'), ('Usuario');
+
+-- Inserts de datos para la tabla Categoria
+INSERT INTO [dbo].[Categoria] ([NombreCategoria]) VALUES ('Programación');
+INSERT INTO [dbo].[Categoria] ([NombreCategoria]) VALUES ('Diseño');
+INSERT INTO [dbo].[Categoria] ([NombreCategoria]) VALUES ('Negocios');
+INSERT INTO [dbo].[Categoria] ([NombreCategoria]) VALUES ('Idiomas');
+
+-- Inserts de datos para la tabla Usuario
+
+INSERT INTO [dbo].[Usuario] ([CorreoElectronico], [Contrasenna], [Identificacion], [Nombre], [Estado], [IdRol], [UsaClaveTemporal], [FechaCaducidad])
+VALUES ('admin@example.com', 'admin_password', '123456789', 'Admin User', 1, (SELECT [IdRol] FROM [dbo].[Rol] WHERE [NombreRol] = 'Administrador'), 0, GETDATE());
+
+INSERT INTO [dbo].[Usuario] ([CorreoElectronico], [Contrasenna], [Identificacion], [Nombre], [Estado], [IdRol], [UsaClaveTemporal], [FechaCaducidad])
+VALUES ('user@example.com', 'user_password', '987654321', 'Normal User', 1, (SELECT [IdRol] FROM [dbo].[Rol] WHERE [NombreRol] = 'Usuario'), 0, GETDATE());
+
+
+INSERT INTO [dbo].[Curso] ([Nombre], [Descripcion], [Precio], [Stock], [Imagen], [IdCategoria])
+VALUES ('Logitech g502', 'Mouse para juegos de alto desempe o', 39.99, 100, '\images\1.png', 4);
+
+SET IDENTITY_INSERT [dbo].[Bitacora] ON 
+GO
+SET IDENTITY_INSERT [dbo].[Bitacora] OFF
+GO
+
+CREATE PROCEDURE [dbo].[REGISTRAR_ERROR]
+	@Origen      VARCHAR(255),
+    @Mensaje     VARCHAR(5000),
+    @IdUsuario   BIGINT,
+    @DireccionIP VARCHAR(50)
+AS
+BEGIN
+
+	INSERT INTO dbo.Bitacora
+           (FechaHora,
+            Origen,
+            Mensaje,
+            IdUsuario,
+            DireccionIP)
+     VALUES
+           (GETDATE(),
+            @Origen,
+            @Mensaje,
+            @IdUsuario,
+            @DireccionIP)
+
+END
+GO
+
+
+-- Inserts de datos para la tabla Curso
+
+INSERT INTO [dbo].[Curso] ([Nombre], [Descripcion], [Precio], [Stock], [Imagen], [IdCategoria])
+VALUES ('Curso de Python', 'Aprende Python desde cero', 49.99, 100, '\images\python.png', 1);
+
+INSERT INTO [dbo].[Curso] ([Nombre], [Descripcion], [Precio], [Stock], [Imagen], [IdCategoria])
+VALUES ('Curso de Illustrator', 'Domina Illustrator con proyectos prácticos', 79.99, 75, '\images\illustrator.png', 2);
+
+INSERT INTO [dbo].[Curso] ([Nombre], [Descripcion], [Precio], [Stock], [Imagen], [IdCategoria])
+VALUES ('Curso de Finanzas Personales', 'Gestiona tus finanzas como un experto', 29.99, 50, '\images\finanzas.png', 3);
+
+INSERT INTO [dbo].[Curso] ([Nombre], [Descripcion], [Precio], [Stock], [Imagen], [IdCategoria])
+VALUES ('Inglés para Viajeros', 'Aprende lo básico para viajar sin problemas', 19.99, 50, '\images\ingles.png', 4);
