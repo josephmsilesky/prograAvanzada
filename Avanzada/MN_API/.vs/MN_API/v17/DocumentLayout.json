@@ -1,0 +1,89 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sebas\\Downloads\\Avanzada\\Avanzada\\MN_API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4A238699-5F3D-4413-942B-56B77D897DDC}|MN_API\\MN_API.csproj|c:\\users\\sebas\\downloads\\avanzada\\avanzada\\mn_api\\mn_api\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{4A238699-5F3D-4413-942B-56B77D897DDC}|MN_API\\MN_API.csproj|solutionrelative:mn_api\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A238699-5F3D-4413-942B-56B77D897DDC}|MN_API\\MN_API.csproj|C:\\Users\\sebas\\Downloads\\Avanzada\\Avanzada\\MN_API\\mn_api\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A238699-5F3D-4413-942B-56B77D897DDC}|MN_API\\MN_API.csproj|solutionrelative:mn_api\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A238699-5F3D-4413-942B-56B77D897DDC}|MN_API\\MN_API.csproj|C:\\Users\\sebas\\Downloads\\Avanzada\\Avanzada\\MN_API\\mn_api\\controllers\\cursocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A238699-5F3D-4413-942B-56B77D897DDC}|MN_API\\MN_API.csproj|solutionrelative:mn_api\\controllers\\cursocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 174,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:11:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\sebas\\Downloads\\Avanzada\\Avanzada\\MN_API\\MN_API\\Web.config",
+              "RelativeDocumentMoniker": "MN_API\\Web.config",
+              "ToolTip": "C:\\Users\\sebas\\Downloads\\Avanzada\\Avanzada\\MN_API\\MN_API\\Web.config",
+              "RelativeToolTip": "MN_API\\Web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD8AAABZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-04-01T02:25:50.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\Downloads\\Avanzada\\Avanzada\\MN_API\\MN_API\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "MN_API\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\sebas\\Downloads\\Avanzada\\Avanzada\\MN_API\\MN_API\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "MN_API\\Controllers\\UsuarioController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAtwBwAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T02:21:35.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CursoController.cs",
+              "DocumentMoniker": "C:\\Users\\sebas\\Downloads\\Avanzada\\Avanzada\\MN_API\\MN_API\\Controllers\\CursoController.cs",
+              "RelativeDocumentMoniker": "MN_API\\Controllers\\CursoController.cs",
+              "ToolTip": "C:\\Users\\sebas\\Downloads\\Avanzada\\Avanzada\\MN_API\\MN_API\\Controllers\\CursoController.cs",
+              "RelativeToolTip": "MN_API\\Controllers\\CursoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T02:21:35.834Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

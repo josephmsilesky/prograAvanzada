@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a94bdd2499424aacb7308be6732b5fc9" Name="Diagram1">
+        <EntityTypeShape EntityType="GO_ProyectoModel.Rol" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GO_ProyectoModel.Usuario" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="GO_ProyectoModel.FK_Usuario_Rol" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GO_ProyectoModel.Bitacora" Width="1.5" PointX="5.25" PointY="1.25" />
+        <AssociationConnector Association="GO_ProyectoModel.FK_Bitacora_Usuario" />
+        <EntityTypeShape EntityType="GO_ProyectoModel.Curso" Width="1.5" PointX="8.25" PointY="1" />
+        <EntityTypeShape EntityType="GO_ProyectoModel.Carrito" Width="1.5" PointX="6.125" PointY="4.125" />
+        <AssociationConnector Association="GO_ProyectoModel.FK_Carrito_Curso" />
+        <AssociationConnector Association="GO_ProyectoModel.FK_Carrito_Usuario" />
+        <EntityTypeShape EntityType="GO_ProyectoModel.Compra" Width="1.5" PointX="10.5" PointY="1.625" />
+        <AssociationConnector Association="GO_ProyectoModel.FK_Compra_Curso" />
+        <AssociationConnector Association="GO_ProyectoModel.FK_Compra_Usuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
